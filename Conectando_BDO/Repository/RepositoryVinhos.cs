@@ -17,5 +17,25 @@ namespace Conectando_BDO.Repository
                 context.SaveChanges();
             }
         }
+        public List<Vinhos> Read()
+        {
+            List<Vinhos> lista = new List<Vinhos>();
+            
+            using (var context = new RestContext())
+            {
+                lista = context.Vinhos.ToList();
+            }
+            return lista;
+        }
+        public Vinhos Read(int id)
+        {
+            Vinhos model = new Vinhos();
+            
+            using (var context = new RestContext())
+            {
+                model = context.Vinhos.Find(id);
+            }
+            return model;
+        }
     }
 }
