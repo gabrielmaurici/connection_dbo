@@ -37,5 +37,13 @@ namespace Conectando_BDO.Repository
             }
             return model;
         }
+        public void Update(Vinhos model)
+        {
+            using (var context = new RestContext())
+            {
+                context.Entry<Vinhos>(model).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
     }
 }
