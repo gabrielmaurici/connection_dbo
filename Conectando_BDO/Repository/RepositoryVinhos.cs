@@ -45,5 +45,13 @@ namespace Conectando_BDO.Repository
                 context.SaveChanges();
             }
         }
+        public void Delete(int id)
+        {
+            using (var context = new RestContext())
+            {
+                context.Entry<Vinhos>(this.Read(id)).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+            }
+        }
     }
 }
